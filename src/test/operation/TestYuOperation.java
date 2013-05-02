@@ -9,25 +9,25 @@ public class TestYuOperation {
 
     public void SetOption(int option, boolean add) {
         if (add)
-            this.options |= option;// 添加标志位
+            this.options |= option;// add flag
         else
-            this.options &= ~option;// 移除标志位
+            this.options &= ~option;// remove flag
     }
 
     public static void main(String[] args) {
         int a = 1 << 1;
         int b = 1 << 2;
-        System.out.println(a + "的二进制:" + Integer.toBinaryString(a));
-        System.out.println(b + "的二进制:" + Integer.toBinaryString(b));
+        System.out.println(a + "Binary String:" + Integer.toBinaryString(a));
+        System.out.println(b + "Binary String:" + Integer.toBinaryString(b));
         TestYuOperation test = new TestYuOperation();
-        System.out.println("添加标志位  a 和 b ");
+        System.out.println("add flag  a & b ");
         test.SetOption(a, true);
         test.SetOption(b, true);
-        System.out.println("是否存在a:" + test.HasOption(a));
-        System.out.println("是否存在b:" + test.HasOption(b));
-        System.out.println("移除标志位b");
+        System.out.println("Is has flag a:" + test.HasOption(a));
+        System.out.println("Is has flag b:" + test.HasOption(b));
+        System.out.println("remove flagb");
         test.SetOption(b, false);
-        System.out.println("是否存在b:" + test.HasOption(b));
+        System.out.println("Is has flag b:" + test.HasOption(b));
     }
 
     public int getOptions() {
