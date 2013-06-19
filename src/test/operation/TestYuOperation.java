@@ -1,17 +1,50 @@
 package test.operation;
 
+/**
+ * 
+ * @author yudong
+ *
+ */
 public class TestYuOperation {
-    private int options;
+    
+    /**
+     * The flags used to stores 32 boolean flags.
+     * Because the flags is a integer , it's byte size is 32.
+     * Every byte can be used as a boolean flag.
+     * 0 is false,1 is true.
+     */
+    private int flags;
 
-    public boolean HasOption(int option) {
-        return (this.options & option) == option;
+    /**
+     * if flags has flag return true, then return false.
+     * Exp: flag = 4(0100),flags = 6(0110);
+     *   4 & 6 
+     * = 0100 & 0110 
+     * = 0100 
+     * = 4 == 4 return true.
+     * @param flag
+     * @return boolean
+     */
+    public boolean IsHasFlag(int flag) {
+        return (this.flags & flag) == flag;
     }
-
-    public void SetOption(int option, boolean add) {
+    
+    /**
+     * If add is true, add flag to flags, otherwise remove the flag from the flags.
+     * 
+     * Note:
+     * A compound assignment expression of the form 
+     * E1 op= E2 is equivalent to E1 = (T)((E1) op (E2)), 
+     * where T is the type of E1, except that E1 is evaluated only once.
+       So a &= b; is equivalent to a = a & b;
+     * @param flag
+     * @param add a boolean
+     */
+    public void SetFlag(int flag, boolean add) {
         if (add)
-            this.options |= option;// add flag
+            this.flags |= flag;//add flag
         else
-            this.options &= ~option;// remove flag
+            this.flags &= ~flag;//remove flag
     }
 
     public static void main(String[] args) {
@@ -21,21 +54,24 @@ public class TestYuOperation {
         System.out.println(b + "Binary String:" + Integer.toBinaryString(b));
         TestYuOperation test = new TestYuOperation();
         System.out.println("add flag  a & b ");
-        test.SetOption(a, true);
-        test.SetOption(b, true);
-        System.out.println("Is has flag a:" + test.HasOption(a));
-        System.out.println("Is has flag b:" + test.HasOption(b));
+        test.SetFlag(a, true);
+        test.SetFlag(b, true);
+        System.out.println("flags:" + Integer.toBinaryString(test.flags));
+        System.out.println("Is has flag a:" + test.IsHasFlag(a));
+        System.out.println("Is has flag b:" + test.IsHasFlag(b));
         System.out.println("remove flagb");
-        test.SetOption(b, false);
-        System.out.println("Is has flag b:" + test.HasOption(b));
+        test.SetFlag(b, false);
+        System.out.println("flags:" + Integer.toBinaryString(test.flags));
+        System.out.println("Is has flag b:" + test.IsHasFlag(b));
+    }
+    
+
+    public int getflags() {
+        return flags;
     }
 
-    public int getOptions() {
-        return options;
-    }
-
-    public void setOptions(int options) {
-        this.options = options;
+    public void setflags(int flags) {
+        this.flags = flags;
     }
 
 }
