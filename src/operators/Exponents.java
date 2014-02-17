@@ -11,6 +11,9 @@ public class Exponents {
     double expDouble = 47e47d; // 'd' is optional
     double expDouble2 = 47e47; // Automatically double
     System.out.println(expDouble);
+    float i = 2.3f;
+
+    System.out.println("i = " + i); 
   }
 } /* Output:
 1.39E-43
