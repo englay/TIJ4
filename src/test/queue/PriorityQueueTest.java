@@ -5,7 +5,11 @@ import java.util.Queue;
 
 /**
  * http://www.importnew.com/6510.html
- * @author wb-dingyudong
+ * 优先级队列不是同步的，如果需要保证线程安全那么请使用PriorityBlockingQueue
+         队列的获取操作如poll(),peek()和element()是访问的队列的头，保证获取的是最小的元素（根据指定的排序规则）
+         返回的迭代器并不保证提供任何的有序性
+        优先级队列不允许null元素，否则抛出NullPointException。
+ *
  *
  */
 public class PriorityQueueTest {
