@@ -37,8 +37,9 @@ public class ListFeatures {
     List<Pet> copy = new ArrayList<Pet>(pets);
     sub = Arrays.asList(pets.get(1), pets.get(4));
     print("sub: " + sub);
+    print("13copy-before-retain: " + copy);
     copy.retainAll(sub);
-    print("13: " + copy);
+    print("13copy: " + copy);
     copy = new ArrayList<Pet>(pets); // Get a fresh copy
     copy.remove(2); // Remove by index
     print("14: " + copy);
